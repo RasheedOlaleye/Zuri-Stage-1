@@ -27,8 +27,8 @@ const validateUtcTime = (req, res, next) => {
     const currentUtcTime = new Date().toUTCString();
 
   // Get GitHub URLs
-  const githubFileUrl = 'https://github.com/yourusername/yourrepo/blob/master/path/to/your/file.js';
-  const githubSourceUrl = 'https://github.com/yourusername/yourrepo';
+  const githubFileUrl = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
+  const githubSourceUrl = 'https://github.com/RasheedOlaleye/Zuri-Stage-1/tree/main/Stage1';
 
   // Construct the response object
   const response = {
