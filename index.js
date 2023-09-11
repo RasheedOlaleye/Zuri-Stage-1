@@ -21,10 +21,10 @@ const validateUtcTime = (req, res, next) => {
   
     // Get current day of the week
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const currentDayOfWeek = daysOfWeek[new Date().getDay()];
+    const current_day = daysOfWeek[new Date().getDay()];
   
     // Get current UTC time
-    const currentUtcTime = new Date().toUTCString();
+    const utc_time = new Date().toUTCString();
 
   // Get GitHub URLs
   const   github_file_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
@@ -33,12 +33,12 @@ const validateUtcTime = (req, res, next) => {
   // Construct the response object
   const response = {
     slack_name: 'Rasheed_Olaleye',
-    currentDayOfWeek,
-    currentUtcTime,
+    current_day,
+    utc_time,
     track: 'backend',
     github_file_url,
     github_repo_url,
-    "status_code": 200
+    status_code: 200
   };
 
   // Return the result in JSON format
