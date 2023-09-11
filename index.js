@@ -32,7 +32,7 @@ const validateUtcTime = (req, res, next) => {
 
   // Construct the response object
   const response = {
-    slack_name: 'Rasheed Olaleye',
+    slack_name: 'Rasheed_Olaleye',
     currentDayOfWeek,
     currentUtcTime,
     track: 'backend',
