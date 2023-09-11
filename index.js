@@ -27,18 +27,18 @@ const validateUtcTime = (req, res, next) => {
     const currentUtcTime = new Date().toUTCString();
 
   // Get GitHub URLs
-  const githubFileUrl = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
-  const githubSourceUrl = 'https://github.com/RasheedOlaleye/Zuri-Stage-1/tree/main/Stage1';
+  const   github_file_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
+  const  github_repo_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1/tree/main/Stage1';
 
   // Construct the response object
   const response = {
-    slackName: 'Rasheed Olaleye',
+    slack_name: 'Rasheed Olaleye',
     currentDayOfWeek,
     currentUtcTime,
-    track: 'Backend',
+    track: 'backend',
     githubFileUrl,
     githubSourceUrl,
-    statusCode: 'Success',
+    "status_code": 200
   };
 
   // Return the result in JSON format
