@@ -36,8 +36,8 @@ const validateUtcTime = (req, res, next) => {
     currentDayOfWeek,
     currentUtcTime,
     track: 'backend',
-    githubFileUrl,
-    githubSourceUrl,
+    github_file_url,
+    github_repo_url,
     "status_code": 200
   };
 
