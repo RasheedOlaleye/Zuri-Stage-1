@@ -1,36 +1,32 @@
 const express = require('express');
 const app = express();
-const port = 3000; // You can choose any available port
-
+const port = 3000;
 
 const validateUtcTime = (req, res, next) => {
-    const UTCTime = new Date().getTimezoneOffset() / 60;
-    if (UTCTime >= -2 && UTCTime <= 2) {
-      next();
-    } else {
-      res.status(400).json({ error: 'Invalid UTC time offset' });
-    }
-  };
+  const UTCTime = new Date().getTimezoneOffset() / 60;
+  if (UTCTime >= -2 && UTCTime <= 2) {
+    next();
+  } else {
+    res.status(400).json({ error: 'Invalid UTC time offset' });
+  }
+};
 
-  app.use(validateUtcTime)
+app.use(validateUtcTime);
 
-  app.get('/api/endpoint', (req, res) => {
-    // Get query parameters from the request
-    const param1 = req.query.param1;
-    const param2 = req.query.param2;
-  
-    // Get current day of the week
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const current_day = daysOfWeek[new Date().getDay()];
-  
-    // Get current UTC time
-    const utc_time = new Date().toUTCString();
+app.get('/api/endpoint', (req, res) => {
+  const param1 = req.query.param1;
+  const param2 = req.query.param2;
 
-  // Get GitHub URLs
-  const   github_file_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
-  const  github_repo_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1/tree/main/Stage1';
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const current_day = daysOfWeek[new Date().getDay()];
 
-  // Construct the response object
+  // Get current UTC time in the desired format
+  const now = new Date();
+  const utc_time = now.toISOString(); // Format as "2023-08-21T15:04:05.123Z"
+
+  const github_file_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1.git';
+  const github_repo_url = 'https://github.com/RasheedOlaleye/Zuri-Stage-1/tree/main/Stage1';
+
   const response = {
     slack_name: 'Rasheed_Olaleye',
     current_day,
@@ -41,7 +37,6 @@ const validateUtcTime = (req, res, next) => {
     status_code: 200
   };
 
-  // Return the result in JSON format
   res.json(response);
 });
 
