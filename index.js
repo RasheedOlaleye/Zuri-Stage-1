@@ -13,7 +13,7 @@ const validateUtcTime = (req, res, next) => {
 
 app.use(validateUtcTime);
 
-app.get('/api/endpoint', (req, res) => {
+app.get('/api', (req, res) => {
   const param1 = req.query.param1;
   const param2 = req.query.param2;
 
